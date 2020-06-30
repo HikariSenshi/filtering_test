@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    systemProperties System.properties
+    dependsOn 'cleanTest'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.seleniumhq.selenium:selenium-java:3.14.0'
+    testCompile 'com.codeborne:selenide:5.12.2'
+    testCompile 'org.testng:testng:6.14.3'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'org.slf4j:slf4j-log4j12:1.7.5'
+
+}
+
+test {
+    useTestNG()
+
+}
